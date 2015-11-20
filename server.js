@@ -6,7 +6,8 @@ app.use(function(req, res, next) {
 	console.log('%s %s', req.method, req.url);
 	next();
 });
- 
+
+//see clients.server.routes.js. It's using app.param(value, clients.clientById -> this is a function in clients.server.controller.js that is finding the id. I think it's returning it to whatever is next, after the param.thing) 
 app.param('user_id', function(req, res, next, user_id) {
 	// typically we might sanity check that user_id is of the right format
 	UserDatabase.find(user_id, function(err, user) {
